@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
         dryRun = false, //checks if every test step has implementations
         //if there is no step implementation the steps are Useless
         //it will not execute test =. it will just verify if every step is implemented
-        // otherwise it will throw
+        // otherwise it will throw exception
         strict = true //to remove warning in console ??
 
 )
