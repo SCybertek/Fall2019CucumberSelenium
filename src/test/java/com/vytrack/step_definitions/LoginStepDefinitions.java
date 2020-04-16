@@ -1,6 +1,7 @@
 package com.vytrack.step_definitions;
 
 import com.vytrack.pages.LoginPage;
+import com.vytrack.utilities.BrowserUtilities;
 import com.vytrack.utilities.ConfigurationReader;
 import com.vytrack.utilities.Driver;
 import io.cucumber.java.en.Given;
@@ -38,8 +39,16 @@ public class LoginStepDefinitions {
     public void user_should_verify_that_title_is_a_Dashboard() {
         System.out.println("Verify that title is a Dashboard");
 
+        BrowserUtilities.waitForPageToLoad(10);
+        BrowserUtilities.wait(2);
         Assert.assertEquals("Dashboard", Driver.getDriver().getTitle());
         Driver.closeDriver();
+    }
+
+    @When("user logs in as a driver")
+    public void user_logs_in_as_a_driver() {
+        System.out.println("Login as a driver");
+        loginPage.login("user19", "UserUser123");
     }
 
 }

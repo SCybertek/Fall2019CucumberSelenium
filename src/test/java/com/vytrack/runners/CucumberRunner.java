@@ -18,9 +18,22 @@ import org.junit.runner.RunWith;
         //if there is no step implementation the steps are Useless
         //it will not execute test =. it will just verify if every step is implemented
         // otherwise it will throw exception
-        strict = true //to remove warning in console ??
-
+        strict = false, //to remove warning in console ??
+        tags = "@driver and @dashboard"
+        //here we can specify which scenario to run
+        //if we make it @sales_manager and @driver = > it will not run because we do not have scenario that has both together
+        //if we make it @sales_manager or @ driver =>
+        //I think I got it now: if it has sales tag, run it, if it has driver tag, run it, so basically two
 )
+//why to have 2 tags? : (like driver and store manager in feature file
+//when he found a bug I put tag @Bug_VYT4311 (number from Jira)
+//it makes it easy to debug the issue / and we will not forget that this story fails and we already reported it
+//it indicates that issue is known = to label bugs
+//so can this be an appropriate answer to interview question: How do you run only failed test cases in your suite?
+
+//tags = "not @BUG" to quickly run scenarios that area labeled as a bug
+//tags = "@BUG"
+
 //parametrasation of text execution
 //in TestNG we specify what kind of test we want to run = > this is similar to that
 public class CucumberRunner {
