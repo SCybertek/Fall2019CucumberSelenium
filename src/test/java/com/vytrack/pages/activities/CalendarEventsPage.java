@@ -50,12 +50,19 @@ public class CalendarEventsPage extends AbstractPageBase {
     public void enterCalendarEventTitle(String titleValue) {
         BrowserUtilities.waitForPageToLoad(20);
         wait.until(ExpectedConditions.visibilityOf(title)).sendKeys(titleValue);
+        wait.until(ExpectedConditions.attributeToBe(title,"value", titleValue));
+        // he added this explicit wait because his test failed/ but mine passed
+        // it waits until the whole text is entered
+        //input boxed keep text inside Value attribute
     }
 
     public void enterCalendarEventDescription(String description) {
         //wait until frame is available and switch to it
         wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(descriptionFrame));
         descriptionTextArea.sendKeys(description);
+        wait.until(ExpectedConditions.textToBePresentInElement(descriptionTextArea,description));
+        //waits until the last character is entered inside the input box
+        //this text area keeps tex as text
         driver.switchTo().defaultContent();//exit from the frame
     }
 
