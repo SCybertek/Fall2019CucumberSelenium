@@ -32,8 +32,15 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version> 3.0.0-M4 </version>
                 <configuration>
+                    <!--below 3 lines are for parallel testing-->
+                    <parallel>classes</parallel>
+                    <threadCount>2</threadCount>
+                    <perCoreThreadCount>false</perCoreThreadCount>
+                    <!-- this has to be false, or otherwise it will ignore the thread count we set up-->
+                    <forkCount>2C</forkCount>
+                    <!--2c meaning we have 2 version machines : environment where java code is executed-->
                     <includes>
-                        <!-- this is to include runner class -->
+                        <!-- this is to include runner class : you can specify some specific classes as well -->
                         <include>**/*Runner.java</include>
                     </includes>
                     <testFailureIgnore>true</testFailureIgnore>
@@ -59,7 +66,7 @@
                             <outputDirectory>${project.build.directory}</outputDirectory>
                             <inputDirectory>${project.build.directory}</inputDirectory>
                             <jsonFiles>
-                                <param>**/cucumber.json</param>
+                                <param>**/cucumber*.json</param>
                                 <!--this above param is  IMPORTANT . you have to have same name as in our report plugin in runner class-->
                             </jsonFiles>
                         </configuration>

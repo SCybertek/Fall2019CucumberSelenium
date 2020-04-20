@@ -20,7 +20,7 @@ import org.junit.runner.RunWith;
         //if it set to false : it will prompt unimplemented steps in the console NOT ERROR
         tags = "@create_calendar_event_2",
         plugin = {"html:target/default-report",//to generate cucumber html report
-                "json:target/cucumber.json"
+                "json:target/cucumber1.json"
         }
 
         //dry run = is not executing test/ just checking implementation of scenario
