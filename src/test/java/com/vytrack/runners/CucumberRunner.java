@@ -18,7 +18,7 @@ import org.junit.runner.RunWith;
         strict = false,
         //if strict = true ; all unimplemented steps fo scenario will come us ERROR (UnderfinedStepException)
         //if it set to false : it will prompt unimplemented steps in the console NOT ERROR
-        tags = "@create_calendar_event_2",
+        tags = "@create_car",
         plugin = {"html:target/default-report",//to generate cucumber html report
                 "json:target/cucumber1.json"
         }

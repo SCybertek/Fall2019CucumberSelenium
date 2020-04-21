@@ -1,4 +1,5 @@
-@activities #tag for all scenarios in this feature  file - to skip another feature file for exmaple, BUT do not abuse tags (mess)
+@activities
+#tag for all scenarios in this feature  file - to skip another feature file for example, BUT do not abuse tags (mess)
 Feature: Create calendar event
   As user I want to be able to create calendar events.
 
