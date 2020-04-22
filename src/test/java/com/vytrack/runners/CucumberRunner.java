@@ -13,12 +13,12 @@ import org.junit.runner.RunWith;
 //cucumber knows how to use it . it will use JUnit and convert those text into executable test during the runtime
 @CucumberOptions (
         glue = "com/vytrack/step_definitions", //provides the path to step definition
-        features = "src/test/resources/features",
+        features = "src/test/resources",
         dryRun = false,//checks if every test step has implementations
         strict = false,
         //if strict = true ; all unimplemented steps fo scenario will come us ERROR (UnderfinedStepException)
         //if it set to false : it will prompt unimplemented steps in the console NOT ERROR
-        tags = "@create_car",
+        tags = "@create_car_ddt",
         plugin = {"html:target/default-report",//to generate cucumber html report
                 "json:target/cucumber1.json"
         }
@@ -104,3 +104,7 @@ public class CucumberRunner {
  *  mvn clean verify -q => minimize console log
  * *It does not generate report when you run from cucumberRunner
  */
+
+//scenario outline:
+// "" => defines parameter in our step definition
+//  <> => required by scenario outline where data will be inserted

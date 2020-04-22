@@ -4,6 +4,7 @@ import com.vytrack.pages.LoginPage;
 import com.vytrack.utilities.BrowserUtilities;
 import com.vytrack.utilities.ConfigurationReader;
 import com.vytrack.utilities.Driver;
+import io.cucumber.datatable.dependency.com.fasterxml.jackson.annotation.JsonTypeInfo;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -66,6 +67,22 @@ public class LoginStepDefinitions {
         //above statement will print this line : User clicks on the Activities tab and navigates to Calendar Events module
         //%s => tab  %s => module - %s means String
         //just for debugging purpose, we wrote this message, normally we use loggers, to see what went wrong in which state
+    }
+
+    @Then("user name should be {string}")
+    public void user_name_should_be(String name) {
+        Assert.assertEquals(name, loginPage.getCurrentUserName());
+    }
+
+    @When("user logs in as {string}")
+    public void user_logs_in_as(String userType) {
+    loginPage.login(userType);
+    }
+
+    @Then("user verifies that page title is {string}")
+    public void user_verifies_that_page_title_is(String string) {
+        System.out.println("Verify that page title is: " + string);
+        Assert.assertEquals(string, Driver.getDriver().getTitle());
     }
 
     //command + shift + f => to deep search where tags (activities) is used

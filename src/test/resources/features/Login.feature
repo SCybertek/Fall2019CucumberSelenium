@@ -35,3 +35,22 @@ Feature:Login
       # why double quotes ? = to inject in step def as parameters
       # even if you change the inside of "" the step will not need extra implementation
       # string /int/boolean = they all can be but String is more widely used as a parameter
+
+  @scenario_outline
+  Scenario Outline: User names test for user <name>
+    When user enters "<username>" username and "<password>" password
+    Then user name should be "<name>"
+
+    Examples: credentials
+      | username        | password    | name             |
+      | user187         | UserUser123 | Jerel Vandervort |
+      | user200         | UserUser123 | Lonzo Leuschke   |
+      | storemanager52  | UserUser123 | Roma Medhurst    |
+      | storemanager66  | UserUser123 | Carlos Ernser    |
+      | salesmanager125 | UserUser123 | Cleveland Heller |
+      | salesmanager140 | UserUser123 | Jameson Paucek   |
+
+    #examples DO NOT BELONG TO specific test step BUT to the scenario itself
+
+    #first row in here is parameters (username /password/name)
+    #every row is equivalent of test case
