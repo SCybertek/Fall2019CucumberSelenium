@@ -15,7 +15,8 @@ public class Hooks {
     @Before  (order = 2)//these are from cucumber
     public void setup(){
         System.out.println("Test setup");
-        Driver.getDriver().manage().window().maximize();
+        //Driver.getDriver().manage().window().maximize();
+        Driver.getDriver();
 
     }
 
