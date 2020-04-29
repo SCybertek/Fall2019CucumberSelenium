@@ -14,7 +14,8 @@ import org.junit.runner.RunWith;
         tags = "@smoke_test",
         plugin = {
                 "html:target/smoke_test_default-report",
-                "json:target/cucumber1.json"
+                "json:target/cucumber1.json",
+                "rerun:target/rerun.txt" //this plugin for generate txt file that shows us which scenario has failed
         }
 
 )
