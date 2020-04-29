@@ -136,14 +136,13 @@
             <artifactId>cucumber-java</artifactId>
             <version>4.8.0</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit
-         cucumber by itself does not exist/ not autonomous. it has to be used with TestNG or JUnit -->
+        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
         <dependency>
             <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-junit</artifactId>
+            <artifactId>cucumber-testng</artifactId>
             <version>4.8.0</version>
-            <scope>test</scope>
         </dependency>
+
 
         <!-- Selenium Java
         https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->

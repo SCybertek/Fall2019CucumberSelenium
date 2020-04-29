@@ -4,14 +4,11 @@ package com.vytrack.runners;
 //you can specify what kind of test you want to specify
 //like .xml runner in testNg but more simple / easier
 
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
-import org.junit.runner.RunWith;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
 
-@RunWith(Cucumber.class) //coming from JUnit
-//@RunWith annotation => allows custom task configuration
-//cucumber knows how to use it . it will use JUnit and convert those text into executable test during the runtime
-@CucumberOptions (
+
+@CucumberOptions(
         glue = "com/vytrack/step_definitions", //provides the path to step definition
         features = "src/test/resources",
         dryRun = false,//checks if every test step has implementations
@@ -48,7 +45,7 @@ import org.junit.runner.RunWith;
         //if it has sales tag, run it, if it has driver tag, run it, so basically two scenario will
 )
 
-public class CucumberRunner {
+public class CucumberRunner extends AbstractTestNGCucumberTests { //extending this class is a must when you implement cucumber with TestNG
 
 }
 
