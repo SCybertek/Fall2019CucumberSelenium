@@ -18,8 +18,12 @@ public class LoginStepDefinitions {
     @Given("user is on the login page")
     public void user_is_on_the_login_page() {
         System.out.println("Open login page");
-
-        String URL = ConfigurationReader.getProperty("qa3");
+        String env = "qa2"; //( by default it is qa2)
+        if (System.getProperty("env") != null) { //if environment was specified with maven goal -Denv=qa3
+            env = System.getProperty("env");
+        }
+        String URL = ConfigurationReader.getProperty(env);
+        System.out.println("URL:: " + URL); //we can change browser type/ environment on the fly using this commands : mvn test -Dbrower=firefox -Denv=qa2 -P Smoke
         Driver.getDriver().get(URL);
     }
 
@@ -40,7 +44,7 @@ public class LoginStepDefinitions {
         System.out.println("Verify that title is a Dashboard");
         BrowserUtilities.waitForPageToLoad(10);
         BrowserUtilities.wait(2);
-        Assert.assertEquals("Dashboard", Driver.getDriver().getTitle());
+        Assert.assertEquals("Dashboar", Driver.getDriver().getTitle());
        // Driver.closeDriver(); this should not be here ..But in HOOKS
     }
 

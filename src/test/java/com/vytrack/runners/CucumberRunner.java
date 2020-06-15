@@ -18,7 +18,7 @@ import org.junit.runner.RunWith;
         strict = false,
         //if strict = true ; all unimplemented steps fo scenario will come us ERROR (UnderfinedStepException)
         //if it set to false : it will prompt unimplemented steps in the console NOT ERROR
-        tags = "@view_calendar_events",
+        tags = "@sales_manager",
         plugin = {"html:target/default-report",//to generate cucumber html report
                 "json:target/cucumber1.json",
                 "rerun:target/rerun.txt" //this plugin for generate txt file that shows us which scenario has failed
