@@ -113,7 +113,7 @@ public class Driver {
                     WebDriverManager.chromedriver().setup();
                     ChromeOptions chromeOptions1 = new ChromeOptions();
                     try {
-                        URL url = new URL ("http://our ec2 server IP:4444/wd/hub");
+                        URL url = new URL ("http://52.86.64.216:4444/wd/hub");
                         driverPool.set(new RemoteWebDriver(url, chromeOptions1));
 
                     } catch (MalformedURLException e) {
